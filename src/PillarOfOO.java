@@ -1,5 +1,5 @@
 
-public class PillarOfOO extends Treasure 
+public class PillarOfOO 
 {
 	
 }
