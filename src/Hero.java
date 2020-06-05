@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public abstract class Hero extends DungeonCharacter
@@ -84,4 +85,36 @@ public abstract class Hero extends DungeonCharacter
 		
 			}//end battleChoices
 		
+			public boolean isAlive()
+			{
+				return true;
+			}
+
+			public int numPillarOfOOFound()
+			{
+				return 0;
+			}
+			
+			public boolean drinkVisionPotion()
+			{
+				// make sure we have that potion if not return false
+				// apply the potion like this: potion.applyToHero(this);
+				// remove potion from inventory
+				return true;
+			}
+			
+			public boolean drinkHealingPotion()
+			{
+				// make sure we have that potion if not return false
+				// apply the potion like this: potion.applyToHero(this);
+				// remove potion from inventory
+				return true;
+			}
+			
+			public String inventoryView()
+			{
+				// return string about how many healing potions and how many vision potions 
+				String output = "Hero Inventory\n";
+				return output;
+			}
 	}//end Hero class

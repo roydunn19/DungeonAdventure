@@ -1,17 +1,14 @@
 
-public class VisionPotion extends Modifier
+public class VisionPotion extends Potion
 {
-
 	public VisionPotion()
 	{
-		this.duration = 1;
+		this.name = "Vision potion";
 	}
 	
 	@Override
-	public void ApplyToHero(Hero hero) 
+	public void applyToHero(Hero hero) 
 	{
-		// TODO Auto-generated method stub
-		
+		// does not modify user
 	}
-
 }

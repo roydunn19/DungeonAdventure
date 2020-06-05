@@ -1,15 +1,21 @@
 
-public class Room 
+public abstract class Room 
 {
 	// Doors - N, S, E, W
 	public boolean nDoor;
 	public boolean eDoor;
 	public boolean sDoor;
 	public boolean wDoor;
-		
-	// Contains default constructor and all methods you deem necessary -- modular design is CRUCIAL
+
+	protected char ContentCode;
+	
+	// Contains default constructor and all methods you deem necessary 
+	// -- modular design is CRUCIAL
 	public Room()
 	{
+		
+		
+		
 	}
 
 	// Must contain a toString method that builds a 2D Graphical representation of the room 
@@ -17,6 +23,12 @@ public class Room
 	// The (command line) representation is as follows:
 	public String toString()
 	{
-		return "";
+		// first row
+		String output = "*" + (this.nDoor ? "-" : "*") + "*\n";
+		// second row
+		output += (this.wDoor ? "|" : "*") + this.ContentCode + (this.eDoor ? "|" : "*") + "\n";
+		// third row
+		output += "*" + (this.sDoor ? "-" : "*") + "*\n";
+		return output;
 	}
 }
