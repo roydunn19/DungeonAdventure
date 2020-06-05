@@ -25,5 +25,4 @@ public class HeroFactory extends DungeonCharacter{
 	public static Hero createWitcher() {
 		return new Witcher();
 	}
-	
 }

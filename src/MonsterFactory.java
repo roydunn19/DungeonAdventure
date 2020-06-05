@@ -27,4 +27,8 @@ public class MonsterFactory extends DungeonCharacter {
 	public static Monster createGuardian() {
 		return new Guardian();
 	}
+	public static Monster getRandomMonster() {
+		// randomly picks a monster to return
+		return null;
+	}
 }
