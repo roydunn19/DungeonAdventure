@@ -3,25 +3,30 @@ public class RoomWithContents extends Room
 {
 	public RoomWithContents()
 	{
+		this.ContentCode = 'E';
 		int chance = (int)(99 * (Math.random() + 1));
 		if (chance < 10)
 		{
-			visionPotion = new VisionPotion();
+			this.ContentCode = this.ContentCode == 'E' ? 'V' : 'M';
+			this.visionPotion = new VisionPotion();
 		}
 		chance = (int)(99 * (Math.random() + 1));
 		if (chance < 30)
 		{
-			healingPotion = new HealingPotion();
+			this.ContentCode = this.ContentCode == 'E' ? 'H' : 'M';
+			this.healingPotion = new HealingPotion();
 		}
 		chance = (int)(99 * (Math.random() + 1));
 		if(chance < 30)
 		{
-			pit = new Pit();
+			this.ContentCode = this.ContentCode == 'E' ? 'P' : 'M';
+			this.pit = new Pit();
 		}
 		chance = (int)(99 * (Math.random() + 1));
 		if(chance < 30)
 		{
-			monster = MonsterFactory.getRandomMonster();
+			this.ContentCode = this.ContentCode == 'E' ? 'X' : 'M';
+			this.monster = MonsterFactory.getRandomMonster();
 		}
 		/*
 		this.strength = (int)(Math.round(10 * Math.random()) + 5); 
