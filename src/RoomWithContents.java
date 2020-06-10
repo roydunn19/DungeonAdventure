@@ -1,8 +1,9 @@
 
 public class RoomWithContents extends Room 
 {
-	public RoomWithContents()
+	public RoomWithContents(boolean nDoor, boolean eDoor, boolean sDoor, boolean wDoor)
 	{
+		super(nDoor, eDoor, sDoor, wDoor);
 		this.ContentCode = 'E';
 		int chance = (int)(99 * (Math.random() + 1));
 		if (chance < 10)

@@ -10,8 +10,7 @@ public class Dungeon
 		// place the hero at the entrance
 		this.HeroLocationX = (int) Math.round((numRowsInMap - 1) * Math.random());
 		this.HeroLocationY = (int) Math.round((numColsInMap - 1) * Math.random());
-		this.Map[this.HeroLocationX][this.HeroLocationY] = new EntryExitRoom(true);
-
+		
 		// choose location of entry and exit rooms and add to map
 		int exitLocationX;
 		do
@@ -23,16 +22,27 @@ public class Dungeon
 		{
 			exitLocationY = (int) Math.round((numColsInMap - 1) * Math.random());
 		} while (exitLocationY == this.HeroLocationY);
-		this.Map[exitLocationX][exitLocationY] = new EntryExitRoom(false);
 		
 		// the rest are normal rooms with content
 		for(int rowNum = 0; rowNum < this.Map.length - 1; rowNum++)
 		{
 			for(int colNum = 0; colNum < this.Map[colNum].length - 1; colNum++)
 			{
-				if (this.Map[rowNum][colNum] == null)
+				boolean nDoor = rowNum != 0;
+				boolean eDoor = colNum != numColsInMap - 1;
+				boolean sDoor = rowNum != numRowsInMap - 1;
+				boolean wDoor = colNum != 0;
+				if(this.HeroLocationX == rowNum && this.HeroLocationY == colNum)
 				{
-					this.Map[rowNum][colNum] = new RoomWithContents();
+					this.Map[this.HeroLocationX][this.HeroLocationY] = new EntryExitRoom(true, nDoor, eDoor, sDoor, wDoor);
+				}
+				else if(exitLocationX == rowNum && exitLocationY == colNum)
+				{
+					this.Map[exitLocationX][exitLocationY] = new EntryExitRoom(false, nDoor, eDoor, sDoor, wDoor);
+				}
+				else
+				{
+					this.Map[rowNum][colNum] = new RoomWithContents(nDoor, eDoor, sDoor, wDoor);
 				}
 			}
 		}
@@ -68,15 +78,15 @@ public class Dungeon
 				if (isVisible)
 				{
 					roomDisplay = this.Map[rowNum][colNum].toString();
-					row1 += roomDisplay.substring(0, 2);
-					row2 += roomDisplay.substring(4, 6);
-					row1 += roomDisplay.substring(8, 10);
+					row1 += roomDisplay.substring(0, 3);
+					row2 += roomDisplay.substring(4, 7);
+					row3 += roomDisplay.substring(8, 11);
 				}
 				else
 				{
 					row1 += "   ";
 					row2 += "   ";
-					row1 += "   ";
+					row3 += "   ";
 				}
 			}
 			

@@ -11,11 +11,12 @@ public abstract class Room
 	
 	// Contains default constructor and all methods you deem necessary 
 	// -- modular design is CRUCIAL
-	public Room()
+	public Room(boolean nDoor, boolean eDoor, boolean sDoor, boolean wDoor)
 	{
-		
-		
-		
+		this.nDoor = nDoor;
+		this.eDoor = eDoor;
+		this.sDoor = sDoor;
+		this.wDoor = wDoor;
 	}
 
 	// Must contain a toString method that builds a 2D Graphical representation of the room 

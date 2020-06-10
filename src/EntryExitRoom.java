@@ -1,8 +1,9 @@
 
 public class EntryExitRoom extends Room 
 {
-	public EntryExitRoom(boolean isEntrance)
+	public EntryExitRoom(boolean isEntrance, boolean nDoor, boolean eDoor, boolean sDoor, boolean wDoor)
 	{
+		super(nDoor, eDoor, sDoor, wDoor);
 		this.isEntrance = isEntrance;
 		this.ContentCode = isEntrance ? 'I' : 'O';
 	}
