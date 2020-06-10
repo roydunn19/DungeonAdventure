@@ -24,9 +24,9 @@ public class Dungeon
 		} while (exitLocationY == this.HeroLocationY);
 		
 		// the rest are normal rooms with content
-		for(int rowNum = 0; rowNum < this.Map.length - 1; rowNum++)
+		for(int rowNum = 0; rowNum < numRowsInMap; rowNum++)
 		{
-			for(int colNum = 0; colNum < this.Map[colNum].length - 1; colNum++)
+			for(int colNum = 0; colNum < numColsInMap; colNum++)
 			{
 				boolean nDoor = rowNum != 0;
 				boolean eDoor = colNum != numColsInMap - 1;
@@ -34,11 +34,11 @@ public class Dungeon
 				boolean wDoor = colNum != 0;
 				if(this.HeroLocationX == rowNum && this.HeroLocationY == colNum)
 				{
-					this.Map[this.HeroLocationX][this.HeroLocationY] = new EntryExitRoom(true, nDoor, eDoor, sDoor, wDoor);
+					this.Map[rowNum][colNum] = new EntryExitRoom(true, nDoor, eDoor, sDoor, wDoor);
 				}
 				else if(exitLocationX == rowNum && exitLocationY == colNum)
 				{
-					this.Map[exitLocationX][exitLocationY] = new EntryExitRoom(false, nDoor, eDoor, sDoor, wDoor);
+					this.Map[rowNum][colNum] = new EntryExitRoom(false, nDoor, eDoor, sDoor, wDoor);
 				}
 				else
 				{

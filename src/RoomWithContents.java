@@ -5,25 +5,25 @@ public class RoomWithContents extends Room
 	{
 		super(nDoor, eDoor, sDoor, wDoor);
 		this.ContentCode = 'E';
-		int chance = (int)(99 * (Math.random() + 1));
+		int chance = (int)(99 * Math.random() + 1);
 		if (chance < 10)
 		{
 			this.ContentCode = this.ContentCode == 'E' ? 'V' : 'M';
 			this.visionPotion = new VisionPotion();
 		}
-		chance = (int)(99 * (Math.random() + 1));
+		chance = (int)(99 * Math.random() + 1);
 		if (chance < 30)
 		{
 			this.ContentCode = this.ContentCode == 'E' ? 'H' : 'M';
 			this.healingPotion = new HealingPotion();
 		}
-		chance = (int)(99 * (Math.random() + 1));
+		chance = (int)(99 * Math.random() + 1);
 		if(chance < 30)
 		{
 			this.ContentCode = this.ContentCode == 'E' ? 'P' : 'M';
 			this.pit = new Pit();
 		}
-		chance = (int)(99 * (Math.random() + 1));
+		chance = (int)(99 * Math.random() + 1);
 		if(chance < 30)
 		{
 			this.ContentCode = this.ContentCode == 'E' ? 'X' : 'M';
